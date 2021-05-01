@@ -7,6 +7,7 @@ git config --global user.username "reynoldmorel"
 
 git clone git@github.com:reynoldmorel/zggcp-core-deploy.git
 git checkout feature/dev
+git pull
 
 rm -rf zggcp
 

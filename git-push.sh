@@ -14,4 +14,4 @@ sudo cp -r ../zggcp-core/target/mvn-repo/. /
 
 git add .
 git commit -m "Updated from Jenkins"
-git push
+git push --set-upstream origin feature/dev

@@ -1,19 +1,5 @@
 node {
-    stage('Checking out the project') {
-        git branch: 'feature/dev',
-          credentialsId: '8cf02219-c940-477b-a1ec-123e4611673c',
-          url: 'https://github.com/reynoldmorel/zggcp-core-deploy.git'
-    }
-
-    stage('Removing old files') {
-        sh 'rm -rf zggcp'
-    }
-
-    stage('Updating new files') {
-        sh 'sudo cp -r ../zggcp-core/target/mvn-repo/. /'
-    }
-
-    stage('Updating Zggcp-Core-Deploy') {
+    stage('Updating zggcp-core-deploy') {
       sh 'chmod +x git-push.sh'
       sh './git-push.sh'
     }

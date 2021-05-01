@@ -1,10 +1,4 @@
 node {
-    stage('Updating the project') {
-        git branch: 'feature/dev',
-          credentialsId: '8cf02219-c940-477b-a1ec-123e4611673c',
-          url: 'https://github.com/reynoldmorel/zggcp-core-deploy.git'
-    }
-
     stage('Removing old files') {
         sh 'rm -rf zggcp'
     }
@@ -14,7 +8,8 @@ node {
     }
 
     stage('Updating Zggcp-Core-Deploy') {
-        sh 'chmod +x git-push.sh'
-        sh './git-push.sh'
+      sh 'git add .'
+      sh 'git commit -m "Updated from Jenkins"'
+      sh 'git push origin feature/dev'
     }
 }

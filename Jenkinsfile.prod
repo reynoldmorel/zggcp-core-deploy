@@ -1,21 +1,19 @@
 node {
     stage('Updating the project') {
-        git branch: 'master',
-          credentialsId: '8cf02219-c940-477b-a1ec-123e4611673c',
-          url: 'https://github.com/reynoldmorel/zggcp-core-deploy.git'
-    }
-
-    stage('Removing old files') {
-        sh 'rm -rf zggcp'
-    }
-
-    stage('Updating new files') {
-        sh 'sudo cp -r ../zggcp-core/target/mvn-repo/. /'
-    }
-
-    stage('Updating Zggcp-Core-Deploy') {
-        sh 'git add .'
-        sh 'git commit -m "Updated from Jenkins"'
-        sh 'git push'
+        sshagent (credentials: ['8cf02219-c940-477b-a1ec-123e4611673d']) {
+            sh 'sudo rm -rf *'
+            sh 'sudo rm -rf .git'
+            
+            sh 'git clone git@github.com:reynoldmorel/zggcp-core-deploy.git .'
+            sh 'git checkout master'
+              
+            sh 'sudo rm -rf zggcp'
+    
+            sh 'sudo cp -r ../zggcp-core/target/mvn-repo/zggcp/ .'
+            
+            sh 'git add .'
+            sh 'git commit -m "Updated by Jenkins"'
+            sh 'git push'
+        }
     }
 }

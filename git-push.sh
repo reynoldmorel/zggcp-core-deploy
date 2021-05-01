@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh-add -K id_rsa
+ssh-add id_rsa
 ssh-add -l
 git config --global user.email "reynoldmorel@gmail.com"
 git config --global user.name "Reynold Morel"

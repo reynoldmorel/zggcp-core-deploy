@@ -1,6 +1,4 @@
 #!/bin/bash
-eval `ssh-agent -s`
-ssh-add id_rsa
 git config --global user.email "reynoldmorel@gmail.com"
 git config --global user.name "Reynold Morel"
 git config --global user.username "reynoldmorel"

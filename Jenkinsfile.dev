@@ -14,8 +14,7 @@ node {
     }
 
     stage('Updating Zggcp-Core-Deploy') {
-        sh 'git add .'
-        sh 'git commit -m "Updated from Jenkins"'
-        sh 'git push'
+        sh 'chmod +x git-push.sh'
+        sh './git-push.sh'
     }
 }

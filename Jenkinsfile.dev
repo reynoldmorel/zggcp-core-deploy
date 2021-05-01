@@ -1,7 +1,12 @@
 node {
+    stage('Checking out the project') {
+        git branch: 'feature/dev',
+          credentialsId: '8cf02219-c940-477b-a1ec-123e4611673c',
+          url: 'https://github.com/reynoldmorel/zggcp-core-deploy.git'
+    }
+
     stage('Updating zggcp-core-deploy') {
       sshagent(credentials: ['8cf02219-c940-477b-a1ec-123e4611673d']) {
-        sh 'chmod 400 id_rsa'
         sh 'chmod +x git-push.sh'
         sh './git-push.sh'
       }

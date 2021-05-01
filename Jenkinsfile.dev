@@ -1,6 +1,8 @@
 node {
     stage('Updating zggcp-core-deploy') {
-      sh 'chmod +x git-push.sh'
-      sh './git-push.sh'
+      sshagent(['8cf02219-c940-477b-a1ec-123e4611673d']) {
+        sh 'chmod +x git-push.sh'
+        sh './git-push.sh'
+      }
     }
 }

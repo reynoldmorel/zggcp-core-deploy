@@ -1,19 +1,25 @@
-node {
-    stage('Updating the project') {
-        sshagent (credentials: ['8cf02219-c940-477b-a1ec-123e4611673d']) {
-            sh 'sudo rm -rf *'
-            sh 'sudo rm -rf .git'
+pipeline {
+    agent any
+
+    stages {
+        stage('Updating the project') {
+            steps {
+                sshagent (credentials: ['8cf02219-c940-477b-a1ec-123e4611673d']) {
+                    sh 'sudo rm -rf *'
+                    sh 'sudo rm -rf .git'
+                    
+                    sh 'git clone git@github.com:reynoldmorel/zggcp-core-deploy.git .'
+                    sh 'git checkout master'
+                      
+                    sh 'sudo rm -rf zggcp'
             
-            sh 'git clone git@github.com:reynoldmorel/zggcp-core-deploy.git .'
-            sh 'git checkout master'
-              
-            sh 'sudo rm -rf zggcp'
-    
-            sh 'sudo cp -r ../zggcp-core/target/mvn-repo/zggcp/ .'
-            
-            sh 'git add .'
-            sh 'git commit -m "Updated by Jenkins"'
-            sh 'git push'
+                    sh 'sudo cp -r ../zggcp-core/target/mvn-repo/zggcp/ .'
+                    
+                    sh 'git add .'
+                    sh 'git commit -m "Updated by Jenkins"'
+                    sh 'git push'
+                }
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>zggcp.core</groupId>
@@ -14,11 +14,9 @@
     <packaging>jar</packaging>
 
     <properties>
-        <lombok.version>1.18.22</lombok.version>
-        <hibernate.validator.version>7.0.2.Final</hibernate.validator.version>
-        <spring.boot.core.version>2.6.2</spring.boot.core.version>
-        <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
-        <com.puppycrawl.tools.checkstyle.version>10.0</com.puppycrawl.tools.checkstyle.version>
+        <lombok.version>1.18.8</lombok.version>
+        <hibernate.validator.version>6.0.13.Final</hibernate.validator.version>
+        <spring.boot.core.version>2.2.0.RELEASE</spring.boot.core.version>
     </properties>
 
     <dependencies>
@@ -46,13 +44,6 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>${maven.checkstyle.plugin.version}</version>
-            <type>maven-plugin</type>
-        </dependency>
     </dependencies>
 
     <build>
@@ -65,33 +56,6 @@
                         internal.repo::default::file://${project.parent.build.directory}/mvn-repo
                     </altDeploymentRepository>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyle.plugin.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>${com.puppycrawl.tools.checkstyle.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <configLocation>src/main/resources/custom-google-checks.xml</configLocation>
-                    <suppressionsLocation>src/main/resources/checkstyle-suppressions.xml</suppressionsLocation>
-                    <consoleOutput>true</consoleOutput>
-                    <maxAllowedViolations>2500</maxAllowedViolations>
-                    <failsOnError>true</failsOnError>
-                    <failOnViolation>true</failOnViolation>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

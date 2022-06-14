@@ -6,7 +6,7 @@
 
     <groupId>zggcp.core</groupId>
     <artifactId>zggcp-core</artifactId>
-    <version>1.0</version>
+    <version>v2</version>
 
     <packaging>pom</packaging>
     <name>zggcp-core</name>

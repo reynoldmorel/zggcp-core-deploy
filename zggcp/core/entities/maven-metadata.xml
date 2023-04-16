@@ -3,10 +3,10 @@
   <groupId>zggcp.core</groupId>
   <artifactId>entities</artifactId>
   <versioning>
-    <release>1.0</release>
+    <release>2.0</release>
     <versions>
-      <version>1.0</version>
+      <version>2.0</version>
     </versions>
-    <lastUpdated>20230415030857</lastUpdated>
+    <lastUpdated>20230416071735</lastUpdated>
   </versioning>
 </metadata>

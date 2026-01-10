@@ -15,7 +15,7 @@
 
     <properties>
         <zggcp.core.entities.version>2.0</zggcp.core.entities.version>
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.42</lombok.version>
         <spring.retry.version>2.0.1</spring.retry.version>
         <maven.checkstyle.plugin.version>3.2.1</maven.checkstyle.plugin.version>
         <com.puppycrawl.tools.checkstyle.version>10.9.3</com.puppycrawl.tools.checkstyle.version>
